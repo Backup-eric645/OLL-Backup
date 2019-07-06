@@ -1,3 +1,4 @@
+import os
 class Restore:
     def __init__(self, **kwargs):
         print("Initiating...", end="")
@@ -17,6 +18,9 @@ class Restore:
         print(" Done.")
     def st(self):
         for zi in self.p:
+            if zi[1] is None:
+                os.mkdir(zi[1])
+                continue
             print("Copying from values:", zi[0], 'to', os.path.join(self.root, zi[0]), end="")
             open(os.path.join(self.root, zi[0]), 'wb').write(zi[1])
             print(" Done.")
