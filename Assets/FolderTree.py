@@ -1,3 +1,4 @@
+import os
 def RecurFolderTree(path):
     try:
         listOfFile = os.listdir(path)
@@ -7,6 +8,7 @@ def RecurFolderTree(path):
     for entry in listOfFile:
         fullPath = os.path.join(path, entry)
         if os.path.isdir(fullPath):
+            allFiles.append([fullPath, None])
             allFiles.extend(FolderTree(fullPath))
         else:
             try:
